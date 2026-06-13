@@ -1,4 +1,5 @@
 import os
+import shutil
 import socket
 import pandas as pd
 import numpy as np
@@ -89,7 +90,6 @@ def log_evaluation_metrics(model, X_test, y_test, best_params):
         mlflow.log_metric("f1_score", f1)
         
         # Save model secara lokal terlebih dahulu untuk menghasilkan MLmodel, conda.yaml, model.pkl, dll.
-        import shutil
         temp_model_dir = "temp_model_save"
         if os.path.exists(temp_model_dir):
             shutil.rmtree(temp_model_dir)
